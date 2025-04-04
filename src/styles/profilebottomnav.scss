@@ -1,0 +1,21 @@
+body{
+    font-family: "Work Sans", sans-serif;
+  }
+
+.profile_bottom_nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  
+    p {
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      font-size: 16px;
+      font-weight: 400;
+  
+      &.active {
+        color: #39CDCC;
+      }
+    }
+  }
+  

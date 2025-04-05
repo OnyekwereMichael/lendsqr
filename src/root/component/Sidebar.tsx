@@ -4,6 +4,7 @@ import { sidebarLinks } from '../../constants';
 import { IMAGES } from '../../assets/images';
 import { signOutUser } from '../../firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { HiOutlineLogout } from 'react-icons/hi';
 
 const SideBar = () => {
     const navigate = useNavigate();
@@ -95,7 +96,7 @@ const handleLogout = async () => {
                
 
                 <button className="sidebar__logout" onClick={() => handleLogout()}>
-                    <img src={''} alt="" />
+                <HiOutlineLogout size={20} />
                     <p className="sidebar__logout-text" >Logout</p>
                 </button>
 

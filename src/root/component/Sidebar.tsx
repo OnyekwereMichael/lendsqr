@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom'; // React Router for navigation
-import Logo from '../../assets/logo.svg';
 import '../../styles/sidebar.scss'; 
 import { sidebarLinks } from '../../constants';
 import { IMAGES } from '../../assets/images';

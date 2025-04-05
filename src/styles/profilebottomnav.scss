@@ -6,6 +6,7 @@ body{
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    flex-wrap: wrap;
   
     p {
       cursor: pointer;
@@ -15,6 +16,18 @@ body{
   
       &.active {
         color: #39CDCC;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .profile_bottom_nav {
+      gap: 1rem;
+  
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
       }
     }
   }

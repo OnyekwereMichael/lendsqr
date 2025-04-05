@@ -40,7 +40,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-left">
         <div className="logo-container">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} alt="Logo" className='lender-logo'/>
         </div>
         <img src={sign_in_img} alt="Login Illustration" className="login-image" />
       </div>
@@ -71,7 +71,7 @@ const Login = () => {
                   {showPassword ? 'HIDE' : 'SHOW'}
                 </span>
               </div>
-              <ErrorMessage name="password" component="div" className="error" />
+              <ErrorMessage name="password" component="div" className="error"/>
 
               {error && <div className="error">{error}</div>}
 

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { SetStateAction, useState } from "react";
+import { To, useNavigate } from "react-router-dom";
 import '../../styles/profilebottomnav.scss'
 const ProfileBottomNav = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,7 +14,7 @@ const ProfileBottomNav = () => {
     { label: "App and System", path: "/guarantors" }
   ];
 
-  const handleNavigation = (index, path) => {
+  const handleNavigation = (index: SetStateAction<number>, path: To) => {
     setActiveIndex(index);
     navigate(path); // Navigate to the specified path
   };

@@ -7,37 +7,38 @@ import Loader from './Loader';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { generateStatus } from '../../lib/GenerateStatus/GenerateStatus';
+
 const Table = () => {
   const { data: usersData, isLoading, isError } = GetAllUsers();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [openModalUserId, setOpenModalUserId] = useState<number | null>(null);
-  const [showFilter, setShowFilter] = useState(false);
-  const [organizationFilter, setOrganizationFilter] = useState('');
-  const itemsPerPage = 10;
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [organizationFilter, setOrganizationFilter] = useState<string>('');
+  const itemsPerPage: number = 10;
 
   if (isLoading) return <Loader />;
   if (isError) return <p>Error loading users</p>;
 
   // Generate unique organizations for filter dropdown
-  const uniqueOrganizations = [...new Set(usersData?.map((user: User) => user.organization))];
+  const uniqueOrganizations: string[] = [...new Set((usersData as User[])?.map((user) => user.organization))];
 
   // Apply organization filter
-  const filteredUsers = usersData?.filter(user =>
+  const filteredUsers: User[] | undefined = usersData?.filter((user: { organization: string; }) =>
     organizationFilter ? user.organization === organizationFilter : true
   );
 
   // Pagination Logic
-  const totalPages = Math.ceil((filteredUsers?.length || 0) / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentPageData = filteredUsers?.slice(startIndex, endIndex);
+  const totalPages: number = Math.ceil((filteredUsers?.length || 0) / itemsPerPage);
+  const startIndex: number = (currentPage - 1) * itemsPerPage;
+  const endIndex: number = startIndex + itemsPerPage;
+  const currentPageData: User[] | undefined = filteredUsers?.slice(startIndex, endIndex);
 
   const handlePageChange = (page: number) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
   };
 
-  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const pageNumbers: number[] = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const toggleModal = (userId: number) => {
     setOpenModalUserId(prev => (prev === userId ? null : userId));
@@ -51,8 +52,6 @@ const Table = () => {
     setOrganizationFilter(e.target.value);
     setCurrentPage(1);
   };
-
-
 
   return (
     <div className="table-container">
@@ -82,7 +81,7 @@ const Table = () => {
         </thead>
         <tbody>
           {currentPageData?.map((user: User) => {
-            const status = generateStatus();
+            const status: string = generateStatus();
             return (
               <tr key={user.id} style={{ position: 'relative' }}>
                 <td>{user.organization}</td>

@@ -1,131 +1,162 @@
 $darkblue: #213F7D;
-.navbar-wrapper {
-    display: flex;
-    // justify-content: space-between;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    padding: 1rem;
-    // margin-top: 1.5rem;
-    // width: 100vw;
-  }
-  
 
-  .navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    width: 20%;
-  }
-  
-  .navbar-left img {
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 1rem;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 20%;
+
+  img {
     width: 140px;
     height: 25px;
   }
-  
-  .navbar-left p {
-    color: #001735;
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  .navbar-right {
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+
+  .navbar-right-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    width: 100%;
+    gap: 1rem;
 
-    .navbar-right-section{
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .docs{
+    .docs {
       font-family: "Work Sans", sans-serif;
       font-size: 16px;
       font-weight: 400;
     }
 
-    .notification-icon{
-      width: 20%;
-      height: 20%;
-    }
-   
-
-    .dropdown{
+    .dropdown {
       width: 20%;
       height: 20%;
     }
   }
+}
 
- .avatar-section {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
+.avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 
-    .avatar{
-      width: 25%;
-      height: 25%;
-    }
-
-    .avatar-name {
-      font-size: 16px;
-      font-weight: 500;
-      color: $darkblue;
-      margin-left: 3px;
-    }
-  }
-
-  
-  .notification-icon,
-  .dropdown-icon {
-    width: 24px;
-    height: 24px;
- }
-  
-  .navbar-right .notification-icon,
-  .navbar-right .dropdown-icon {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .hamburger-menu {
-    display: none;
-  }
-  
-  .sidebar-wrapper {
-    display: none;
-  }
-
-  .avatar-generated {
-    width: 40px;
-    height: 35px;
-    border-radius: 50%;
-    background-color: #ccc;
-    color: #333;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .avatar-name {
     font-size: 16px;
+    font-weight: 500;
+    color: $darkblue;
+    margin-left: 3px;
   }
-  
-  
-  @media (max-width: 768px) {
-    .navbar-wrapper {
+}
+
+.avatar-generated {
+  width: 40px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.hamburger-menu {
+  display: none;
+
+  .menu-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+// Sidebar styling for mobile
+.toggle-nav-wrapper {
+  display: none;
+
+
+  @media (max-width: 1024px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+
+    .toggle-nav-overlay {
+      position: absolute;
       width: 100%;
+      height: 100%;
+      background: transparent;
+      box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
     }
-  
-    .navbar-right {
-      width: 40%;
-    }
-  
-    .hamburger-menu {
-      display: block;
-    }
-  
-    .sidebar-wrapper {
-      display: block;
+
+    .toggle-nav-content {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: white;
+      width: 250px;
+      height: 100%;
+      padding: 1rem;
+      box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
     }
   }
+}
+
+// RESPONSIVE styles
+@media (max-width: 1024px) {
+  .navbar-wrapper {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .navbar-left {
+    width: auto;
+
+    img {
+      width: 120px;
+      height: 22px;
+    }
+  }
+
+  .cancel-button {
+    background-color: transparent;
+    color: #545F7D;
+    border: none;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    text-align: right;
+  }
   
+  .cancel-button:hover {
+    color: #000;
+  }
+  
+}

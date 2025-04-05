@@ -145,15 +145,83 @@ $gray: #545F7D;
 @media (max-width: 1024px) {
   .login-container {
     flex-direction: column;
+    padding: 0rem;
+    height: auto;
 
     .login-left {
-      display: none;
+      border-right: none;
+      padding: 1rem;
+      width: 100%;
+      height: auto;
+
+      .lender-logo {
+        width: 40%;
+        height: 40%;
+      }
+
+      .logo-container {
+        // justify-content: center;
+        padding: 0.5rem;
+        margin-bottom: 10%;
+        
+      }
+
+      .login-image {
+        width: 100%;
+        height: auto;
+        padding: 1rem 0;
+
+        img {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+        }
+      }
     }
 
     .login-right {
       width: 100%;
-      max-width: 400px;
-      padding: 2rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+
+      .login-form {
+        width: 100%;
+        gap: 1.8rem;
+
+        input {
+          width: 100%;
+          font-size: 1rem;
+        }
+
+        .password-field {
+          input {
+            width: 100%;
+          }
+
+          .show-password {
+            right: 20px;
+          }
+        }
+
+        .forgot-password {
+          text-align: right;
+          font-size: 0.85rem;
+        }
+
+        .login-button {
+          width: 100%;
+          font-size: 1rem;
+        }
+      }
     }
   }
 }

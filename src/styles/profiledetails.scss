@@ -108,3 +108,64 @@ $lightWhite: #FBFBFB;
   }
   
 }
+
+@media (max-width: 1024px) {
+  .profile-container {
+    padding: 1rem;
+
+    .back {
+      gap: 6px;
+      margin: 0.5rem 0;
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    h1 {
+      margin: 1.5rem 0;
+      font-size: 20px;
+    }
+
+    .profile-data-container {
+      padding: 1rem;
+
+      .section {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+
+        h2 {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr 1fr; // stack all items vertically
+          gap: 2rem;
+
+          .profile_info_personal {
+            font-size: 12px;
+            margin-bottom: 0.3rem;
+          }
+
+          .profile_ans {
+            font-size: 14px;
+            max-width: 100%;
+            flex-wrap: wrap;
+            word-break: break-word;
+          }
+
+          div {
+            strong {
+              font-size: 13px;
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

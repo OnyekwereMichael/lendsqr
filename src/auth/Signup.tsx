@@ -32,7 +32,7 @@ const Signup = () => {
     <div className="login-container">
       <div className="login-left">
         <div className="logo-container">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} alt="Logo" className='lender-logo'/>
         </div>
         <img src={sign_in_img} alt="Signup Illustration" className="login-image" />
       </div>

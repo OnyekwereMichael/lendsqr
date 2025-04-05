@@ -7,9 +7,6 @@ const Home = () => {
   return (
     <div className="home_container">
         <h1 className="user">Users</h1>
-      
-
-      
       <div className="home__card">
         {usersHome.map((item, index) => (
           <div className="home__card-item" key={index}>

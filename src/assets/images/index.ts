@@ -28,6 +28,8 @@ import chart from '../chart-bar 2 (1).svg'
 import preference from '../preference.svg'
 import badge from '../badge-percent 1.svg'
 import clipboard from '../clipboard-list 1.svg'
+import np_money from '../np_money.svg'
+import plenty from '../plenty.svg'
 export const IMAGES = {
     Logo,
     Briefcase,
@@ -59,4 +61,6 @@ export const IMAGES = {
     preference,
     badge,
     clipboard,
+    np_money,
+    plenty
 }

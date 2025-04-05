@@ -42,3 +42,12 @@ body{
   flex: 1;
 
 }
+
+@media (max-width: 1024px) {
+  .custom-content {
+    display: block;
+    flex: 1;
+   
+    width: 100%;
+  }
+}

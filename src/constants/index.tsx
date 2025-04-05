@@ -4,7 +4,7 @@ import {IMAGES} from '../assets/images'
 export const sidebarLinks = [
     {
       imgURL:  IMAGES.User_friend,
-      route: '/',
+      route: '/home',
       label: "Users",
     },
     {
@@ -122,7 +122,7 @@ export const sidebarLinks = [
       number: '2,453',
     },
     {
-      imgUrl: IMAGES.total_user,
+      imgUrl: IMAGES.plenty,
       label: 'Active Users',
       number: '2,453',
     },
@@ -132,7 +132,7 @@ export const sidebarLinks = [
       number: '12,453',
     },
     {
-      imgUrl: IMAGES.total_user,
+      imgUrl: IMAGES.np_money,
       label: 'Users with Savings',
       number: '102,453',
       

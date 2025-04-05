@@ -20,7 +20,7 @@ const Signup = () => {
     const { setSubmitting, setErrors } = actions;
     try {
       await createUser(values.email, values.password);
-      navigate('/');
+      navigate('/home');
     } catch (error: any) {
       setErrors({ email: error.message });
     } finally {

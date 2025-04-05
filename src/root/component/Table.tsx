@@ -86,8 +86,8 @@ const Table = () => {
               <tr key={user.id} style={{ position: 'relative' }}>
                 <td>{user.organization}</td>
                 <td><Link to={`/profile/${user?.id}`}>{user.name}</Link></td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
+                <td><Link to={`/profile/${user?.id}`}>{user.email}</Link></td>
+                <td><Link to={`/profile/${user?.id}`}>{user.phone}</Link></td>
                 <td>{user.dateJoined}</td>
                 <td>
                   <span className={`status ${status}`}>

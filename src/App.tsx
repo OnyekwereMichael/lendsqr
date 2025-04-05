@@ -14,14 +14,14 @@ function App() {
       <Routes>
         {/* auth route  */}
         <Route element={<AuthLayout />}>
-        <Route path="/sign-up" element={<Signup />} />
-        <Route path="/sign-in" element={<Login />} />
+        <Route  path="/sign-up" element={<Signup />} />
+        <Route index  path="/sign-in" element={<Login />} />
         </Route>
 
 
         {/* page route  */}
         <Route element={<RootLayout />}>
-          <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profile/:id" element={<ProfileDetails />} />
         </Route>
       </Routes>

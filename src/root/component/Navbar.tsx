@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Hide navbar on auth pages
-  if (pathname === '/sign-in' || pathname === '/sign-up') return null;
+  if (pathname === '/' || pathname === '/sign-up') return null;
 
   return (
     <>

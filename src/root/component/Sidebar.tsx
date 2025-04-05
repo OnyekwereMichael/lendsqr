@@ -11,7 +11,7 @@ const SideBar = () => {
     const pathname = location.pathname;
 
   // Hide sidebar on /sign-in and /sign-up routes
-if (pathname === '/sign-in' || pathname === '/sign-up') return null;
+if (pathname === '/' || pathname === '/sign-up') return null;
 
 const handleLogout = async () => {
     try {

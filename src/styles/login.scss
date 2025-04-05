@@ -71,6 +71,11 @@ $gray: #545F7D;
       flex-direction: column;
       gap: 1.5rem;
 
+      .error{
+        color: red;
+        margin-top: 0;
+      }
+
       input {
         width: 80%;
         padding: 12px;

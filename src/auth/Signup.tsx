@@ -6,6 +6,7 @@ import { createUser } from '../firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { SignUpValidation } from '../lib/validations';
 import '../styles/loader.scss'
+import toast from 'react-hot-toast';
 
 
 const Signup = () => {
@@ -20,6 +21,7 @@ const Signup = () => {
     const { setSubmitting, setErrors } = actions;
     try {
       await createUser(values.email, values.password);
+      toast.success('Signed in Successfully')
       navigate('/home');
     } catch (error: any) {
       setErrors({ email: error.message });

@@ -8,6 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { LoginValidation } from '../lib/validations';
 import '../styles/loader.scss'
+import toast from 'react-hot-toast';
 
 
 
@@ -26,6 +27,7 @@ const Login = () => {
       setError(null);
       await signInUser(values.email, values.password);
       // Optionally redirect the user
+      toast.success('Logged in Successfully')
     } catch (err: any) {
       console.error(err.message);
       setError('Invalid email or password');

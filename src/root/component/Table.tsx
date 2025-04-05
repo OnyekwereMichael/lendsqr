@@ -11,8 +11,7 @@ import FilterForm from './Filterform';
 
 const Table = () => {
   const { data: usersData, isLoading, isError } = GetAllUsers();
-  if (isLoading) return <Loader />;
-  if (isError) return <p>Error loading users</p>;
+  
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [openModalUserId, setOpenModalUserId] = useState<number | null>(null);
   const [showFilter, setShowFilter] = useState<boolean>(false);
@@ -29,7 +28,8 @@ const Table = () => {
   const itemsPerPage = 10;
 
   
-
+  if (isLoading) return <Loader />;
+  if (isError) return <p>Error loading users</p>;
   const uniqueOrganizations = [...new Set((usersData as User[])?.map((user) => user.organization))];
 
   const filteredUsers = usersData?.filter((user: User) => {

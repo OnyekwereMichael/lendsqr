@@ -25,7 +25,16 @@ const ProfileDetails = () => {
         <p>Back to Users</p>
       </div>
       </Link>
+
+      <div className="profile_user_details">
       <h1>Users Details</h1>
+
+      <div className="profile_buttons">
+         <button className="blacklist">Blacklist User</button>
+         <button className="activate">Activate User</button>
+      </div>
+      </div>
+      
 
       <Profileheader data={data}/>
        <ProfileTable data={data}/>

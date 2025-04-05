@@ -16,6 +16,8 @@ $lightWhite: #FBFBFB;
   margin-top: 4rem; 
   padding: 1.2rem;
   background-color: $lightWhite;
+
+
   .back {
     display: flex;
     gap: 10px;
@@ -29,12 +31,47 @@ $lightWhite: #FBFBFB;
     }
   }
 
-  h1{
-    margin: 2rem 0;
-    font-size: 24px;
-    font-weight: 500;
-    color: $darkblue;
+  .profile_user_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile_buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+   
+
+    h1{
+      margin: 2rem 0;
+      font-size: 24px;
+      font-weight: 500;
+      color: $darkblue;
+    }
+
+    .blacklist {
+      border: 1px solid #E4033B;
+      font-size: 14px;
+      font-weight: 400;
+      color: #E4033B;
+      width: 170px;
+      height: 40px;
+      border-radius: 8px;
+    
+    }
+
+    .activate{
+      border: 1px solid #39CDCC;
+      font-size: 14px;
+      font-weight: 400;
+      color: #39CDCC;
+      width: 170px;
+      height: 40px;
+      border-radius: 8px;
+    }
   }
+
+ 
   .profile-data-container {
     // max-width: 900px;
     width: 100%;
@@ -120,6 +157,11 @@ $lightWhite: #FBFBFB;
       p {
         font-size: 14px;
       }
+    }
+
+    .profile_user_details {
+     flex-direction: column;
+     justify-content: start;
     }
 
     h1 {

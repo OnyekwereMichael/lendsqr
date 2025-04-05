@@ -19,7 +19,7 @@ const ProfileDetails = () => {
   // Render the profile data
   return (
     <div className="profile-container">
-      <Link to={'/'} className="link">
+      <Link to={'/home'} className="link">
       <div className="back">
         <img src={IMAGES.arrow_back} alt="Back" />
         <p>Back to Users</p>

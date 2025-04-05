@@ -113,7 +113,7 @@ $darkblue: #213F7D;
       background: white;
       width: 250px;
       height: 100%;
-      padding: 1rem;
+      padding: 0rem  1rem;
       box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
@@ -132,6 +132,18 @@ $darkblue: #213F7D;
     display: none;
   }
 
+  .avatar-generated {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar-name {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  
+  
   .hamburger-menu {
     display: block;
   }
@@ -150,7 +162,7 @@ $darkblue: #213F7D;
     color: #545F7D;
     border: none;
     font-size: 16px;
-    margin: 10px;
+    margin: 10px 3px 0px 3px;
     cursor: pointer;
     text-align: right;
   }

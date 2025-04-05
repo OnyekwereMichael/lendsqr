@@ -38,7 +38,7 @@ const Navbar = () => {
                   {getInitials(currentUser.email)}
                 </div>
               )}
-              <p className='avatar-name'>Ayodeji</p>
+              <p className='avatar-name'>{currentUser?.email?.slice(0, 8)}</p>
               <img src={IMAGES.dropdown} alt="Dropdown" className='dropdown' width={10} height={10} />
             </section>
           </section>
@@ -68,7 +68,7 @@ const Navbar = () => {
               <div className="avatar-generated">
                 {getInitials(currentUser?.email || '')}
               </div>
-              <p className="avatar-name">Ayodeji</p>
+              <p className='avatar-name'>{currentUser?.email?.slice(0, 8)}</p>
             </div>
              <MobileSidbar />
           </div>

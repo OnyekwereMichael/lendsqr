@@ -16,7 +16,7 @@ if (pathname === '/' || pathname === '/sign-up') return null;
 const handleLogout = async () => {
     try {
       await signOutUser();
-      navigate('/sign-in');
+      navigate('/');
     } catch (error) {
       console.error('Logout failed:', error);
     }

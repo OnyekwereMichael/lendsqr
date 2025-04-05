@@ -4,7 +4,7 @@ export interface User {
   name: string;
   phone: string;
   organization: string;
-  dateJoined: number; 
+  dateJoined: string; 
   maritalStatus: String;
   profileImage: string;
   userTier: string;

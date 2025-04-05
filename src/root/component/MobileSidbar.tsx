@@ -16,7 +16,7 @@ const MobileSidbar = () => {
     const handleLogout = async () => {
         try {
             await signOutUser();
-            navigate('/sign-in');
+            navigate('/');
         } catch (error) {
             console.error('Logout failed:', error);
         }

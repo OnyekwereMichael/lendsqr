@@ -9,7 +9,7 @@ $darkgray: #545F7D;
     padding: 20px;
     border-radius: 2px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    overflow-x: auto;
+    // overflow-x: auto;
     width: 100%;
     border-radius: 10px;
     
@@ -187,6 +187,7 @@ th {
   .table-container {
     border-radius: 8px;
     padding: 5px;
+    overflow-x: auto;
   }
   .pagination {
     flex-direction: column; 

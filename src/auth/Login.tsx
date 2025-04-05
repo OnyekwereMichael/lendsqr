@@ -18,7 +18,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
     setShowPassword(!showPassword);
   };
 

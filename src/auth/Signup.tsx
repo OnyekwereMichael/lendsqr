@@ -13,7 +13,8 @@ const Signup = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
     setShowPassword(!showPassword);
   };
 

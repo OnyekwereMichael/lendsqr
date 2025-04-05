@@ -18,11 +18,14 @@ $gray: #545F7D;
   height: calc(100vh - 3.5rem); 
   background-color: #fff;
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
-  padding: 0.4rem 1.25rem;
+  padding: 0.4rem 0.7rem;
   margin-top: 3.5rem;
   border-right: 1px solid #E2E2E2;
   margin-left: 0;
   overflow-y: auto;
+
+
+
   
   .sidebar__logo {
       display: flex;
@@ -76,22 +79,34 @@ $gray: #545F7D;
       padding: 0.3rem 0;
 
       &--active {
-          background-color: #39cdcd25;
-          color: white;
-          border: none;
-        
-          opacity: 80%;
-          width: 100%;
-          width: 100%;
-          padding: 0.65rem 0;
-          padding-left: 8px;
+           background-color: #39cdcd25; /* Change the background of the item when active */
+    color: white;
+    border: none;
+    opacity: 80%;
+    width: 100%;
+    padding: 0.65rem 0;
+    padding-left: 8px;
+
+    /* Add a blue accent on the left side */
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px; 
+        background-color: #39cdcd; 
+        border-radius: 5px 0 0 5px; 
+    }
         
   
       }
 
       &:hover {
         background-color: #39cdcd25;
-          padding: 0.5rem;
+        padding: 0.65rem 0.3rem;
       }
   }
 

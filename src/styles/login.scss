@@ -21,12 +21,37 @@ $gray: #545F7D;
 
   .login-left {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-right: 1px solid $input-border;
-    height: 100vh;
-    padding: 2rem;
+display: flex;
+flex-direction: column;
+background: #ffffff;
+background-image: 
+  linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), 
+  linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%);
+background-size: 4px 4px;
+background-position: 0 0, 2px 2px;
+background-repeat: no-repeat;
+background-attachment: local;
+border-right: none;
+height: 100vh;
+padding: 2rem;
+position: relative;
+
+::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px; 
+  height: 100%;
+  background-image: 
+    linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  background-repeat: repeat;
+  opacity: 80%;
+}
+
 
     .logo-container {
       display: flex;

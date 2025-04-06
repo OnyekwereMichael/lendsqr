@@ -183,45 +183,56 @@ th {
   }
   
   // Responsive styles for mobile
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .table-container {
-      padding: 15px;
-      overflow-x: auto;
-    }
-  
-    table {
-      min-width: 100%;
-    }
-  
-    th, td {
-      padding: 10px;
-      font-size: 13px;
-      max-width: 140px;
-    }
-  
-    .pagination {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 10px 0;
-    }
-  
-    .pagination-btn {
-      padding: 6px 10px;
-      font-size: 13px;
-      width: auto;
-    }
-  
-    .page-info {
-      font-size: 13px;
-    }
-  
-    .modal-dropdown {
-      width: 140px;
-  
-      ul li {
-        padding: 8px;
-        font-size: 13px;
-      }
-    }
+@media screen and (max-width: 768px) {
+  .table-container {
+    border-radius: 8px;
+    padding: 5px;
+    overflow-x: auto;
   }
+  .pagination {
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 15px;
+    padding: 10px; 
+    gap: 20px;
+  }
+
+  .pagination-left {
+    justify-content: flex-start; 
+  }
+
+  .pagination-btn {
+    padding: 6px 12px; 
+    font-size: 12px; 
+    margin: 5px 0; 
+    width: 100%; 
+  }
+  }
+
   
+@media screen and (max-width: 1024px) {
+  .table-container {
+    border-radius: 8px;
+    padding: 5px;
+    overflow-x: auto;
+  }
+  .pagination {
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 15px;
+    padding: 10px; 
+    gap: 20px;
+  }
+
+  .pagination-left {
+    justify-content: flex-start; 
+  }
+
+  .pagination-btn {
+    padding: 6px 12px; 
+    font-size: 12px; 
+    margin: 5px 0; 
+    width: 100%; 
+  }
+  }
+

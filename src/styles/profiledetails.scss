@@ -160,17 +160,26 @@ $lightWhite: #FBFBFB;
     }
 
     .profile_user_details {
-     flex-direction: column;
-     justify-content: start;
-    }
+     flex-wrap: wrap;
+    //  justify-content: start;
 
-    h1 {
+     h1 {
       margin: 1.5rem 0;
       font-size: 20px;
+      text-align: left;
     }
+
+    .profile_buttons{
+      gap: 1rem;
+    }
+    }
+
+   
+  
 
     .profile-data-container {
       padding: 1rem;
+      min-height: 100%; 
 
       .section {
         margin-bottom: 1.5rem;

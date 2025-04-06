@@ -81,7 +81,7 @@ const Signup = () => {
         </Formik>
 
         <p className="signup-link">
-          Already have an account? <a href="/sign-in">Log in</a>
+          Already have an account? <a href="/">Log in</a>
         </p>
       </div>
     </div>

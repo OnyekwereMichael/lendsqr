@@ -12,8 +12,8 @@ const Searchbar = () => {
         placeholder="Search for anything..."
         className="searchbar-input"
       />
-      <div className="searchbar-icon-container">
-      <FiSearch className="searchbar-icon" />
+      <div className="searchbar-icon-container" data-testid="search-icon">
+      <FiSearch className="searchbar-icon" aria-label="search icon" />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 // SideBar.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter as Router, MemoryRouter } from 'react-router-dom'; // Use MemoryRouter for better control over routes in tests
+import { MemoryRouter } from 'react-router-dom'; // Use MemoryRouter for better control over routes in tests
 import { describe, expect, it, vi } from 'vitest';
 import '@testing-library/jest-dom';
 import SideBar from '../../root/component/Sidebar';
@@ -11,19 +11,6 @@ vi.mock('../../firebase/auth', () => ({
   signOutUser: vi.fn(),
 }));
 
-// Mock sidebarLinks and IMAGES if needed
-const mockSidebarLinks = [
-  { label: 'Dashboard', route: '/dashboard', imgURL: 'home-icon.png' },
-  { label: 'Customers', route: '/customers', imgURL: 'customers-icon.png' },
-  { label: 'Businesses', route: '/businesses', imgURL: 'businesses-icon.png' },
-  { label: 'Settings', route: '/settings', imgURL: 'settings-icon.png' },
-  // Add more items as necessary for testing
-];
-
-const mockIMAGES = {
-  Briefcase: 'briefcase-icon.png',
-  Home: 'home-icon.png',
-};
 
 describe('SideBar Component', () => {
 

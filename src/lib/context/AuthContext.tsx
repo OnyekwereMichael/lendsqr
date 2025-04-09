@@ -7,6 +7,10 @@ interface AuthContextType {
   currentUser: User | null;
   isAuthenticated: boolean;
   loading: boolean;
+  login: () => void;
+  logout: () => void;
+  signup: () => void;
+  
 }
 
 // Create context with initial null
@@ -52,6 +56,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     currentUser,
     isAuthenticated,
     loading,
+    login: () => {}, 
+    logout: () => {}, 
+    signup: () => {},
   };
 
   return (

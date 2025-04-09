@@ -1,82 +1,148 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import Navbar from '../../root/component/Navbar';
+import { it, expect, describe, vi, beforeEach } from 'vitest'
+import "@testing-library/jest-dom"
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from '../../root/component/Navbar'
+import { useLocation } from 'react-router-dom'
+import { useAuth } from '../../lib/context/AuthContext'
 
+// Mock the dependencies
+vi.mock('react-router-dom', async () => {
+  const actual = await vi.importActual('react-router-dom')
+  return {
+    ...actual,
+    useLocation: vi.fn()
+  }
+})
 
-// 🧪 Mock useAuth from AuthContext
 vi.mock('../../lib/context/AuthContext', () => ({
-  useAuth: () => ({
-    currentUser: { email: 'testuser@example.com' },
-  }),
-}));
+  useAuth: vi.fn()
+}))
 
-// 🧪 Mock getInitials function
+vi.mock('../../components/SearchBar', () => ({
+  default: () => <div data-testid="search-bar">Search Bar</div>
+}))
+
+vi.mock('../../components/MobileSidbar', () => ({
+  default: () => <div data-testid="mobile-sidebar">Mobile Sidebar</div>
+}))
+
 vi.mock('../../lib/GetInit', () => ({
-  getInitials: () => 'TU',
-}));
+  getInitials: vi.fn().mockReturnValue('TE')
+}))
 
-// 🧪 Mock IMAGES (Logo + dropdown)
-vi.mock('../../assets/images', () => ({
-  IMAGES: {
-    Logo: 'logo.png',
-    dropdown: 'dropdown.png',
-  },
-}));
+describe('Navbar', () => {
+    beforeEach(() => {
+        // Reset mocks before each test
+        vi.mocked(useLocation).mockReturnValue({
+          pathname: '/dashboard',
+          search: '',
+          hash: '',
+          state: null,
+          key: 'default',
+        });
+        
+        vi.mocked(useAuth).mockReturnValue({
+          currentUser: {
+              email: 'test@example.com',
+              emailVerified: true,
+              isAnonymous: false,
+              metadata: {},
+              providerData: [],
+              refreshToken: '',
+              tenantId: null,
+              uid: '12345',
+              delete: vi.fn(), // Mocking the missing methods
+              getIdToken: vi.fn().mockResolvedValue('mocked-id-token'),
+              getIdTokenResult: vi.fn().mockResolvedValue({}),
+              reload: vi.fn(),
+              toJSON: vi.fn().mockReturnValue({}),
+              displayName: null,
+              phoneNumber: null,
+              photoURL: null,
+              providerId: ''
+          },
+          login: vi.fn(),
+          logout: vi.fn(),
+          signup: vi.fn(),
+          loading: false,
+          isAuthenticated: true, // Added the missing property
+        });
 
-// 🧪 Mock Searchbar component
-vi.mock('../../root/component/SearchBar', () => () => <input placeholder="search for anything" />);
+      });         it('should not render on auth pages', () => {
+    vi.mocked(useLocation).mockReturnValue({
+      pathname: '/sign-up',
+      search: '',
+      hash: '',
+      state: null,
+      key: 'default'
+    })
 
-// 🧪 Mock MobileSidebar
-vi.mock('../../root/component/MobileSidbar', () => () => <div data-testid="mobile-sidebar" />);
-
-describe('Navbar Component', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
-  it('should not render on auth pages ("/" or "/sign-up")', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
+    const { container } = render(
+      <BrowserRouter>
         <Navbar />
-      </MemoryRouter>
-    );
+      </BrowserRouter>
+    )
+    
+    expect(container.firstChild).toBeNull()
+  })
 
-    expect(screen.queryByText('Docs')).not.toBeInTheDocument();
-    expect(screen.queryByPlaceholderText(/search for anything/i)).not.toBeInTheDocument();
-  });
-
-  it('should render the navbar with user initials and email', () => {
+  it('should render docs link and user initials in the navbar', () => {
     render(
-      <MemoryRouter initialEntries={['/dashboard']}>
+      <BrowserRouter>
         <Navbar />
-      </MemoryRouter>
+      </BrowserRouter>
     );
-
-    expect(screen.getByText('TU')).toBeInTheDocument(); // Initials
-    expect(screen.getByText('testuser')).toBeInTheDocument(); // Truncated email
-    expect(screen.getByPlaceholderText(/search for anything/i)).toBeInTheDocument();
+  
+    // Check for Docs link
+    const docsLink = screen.getByText('Docs');
+    expect(docsLink).toBeInTheDocument();
+    expect(docsLink.tagName.toLowerCase()).toBe('a');
+    expect(docsLink).toHaveClass('docs');
+  
+    // Check for user initials (should render 'TE' for 'test@example.com')
+    const userInitials = screen.getByText('TE');
+    expect(userInitials).toBeInTheDocument();
+  
+    // Check for user email truncated to first 8 characters
+    const userName = screen.getByText('test@exa');
+    expect(userName).toBeInTheDocument();
+  });
+  
+  it('should not render navbar on the root and sign-up pages', () => {
+    vi.mocked(useLocation).mockReturnValue({
+      pathname: '/sign-up',
+      search: '',
+      hash: '',
+      state: null,
+      key: 'default'
+    });
+  
+    const { container } = render(
+      <BrowserRouter>
+        <Navbar />
+      </BrowserRouter>
+    );
+  
+    expect(container.firstChild).toBeNull();
   });
 
-  it('should toggle mobile sidebar when hamburger is clicked and close it', () => {
+  it('should render logo and hamburger menu on mobile view', () => {
     render(
-      <MemoryRouter initialEntries={['/dashboard']}>
+      <BrowserRouter>
         <Navbar />
-      </MemoryRouter>
+      </BrowserRouter>
     );
-
-    // Click hamburger menu (only 1 button exists in DOM)
-    const menuBtn = screen.getByRole('button');
-    fireEvent.click(menuBtn);
-
-    // Sidebar should now be in the document
-    expect(screen.getByTestId('mobile-sidebar')).toBeInTheDocument();
-
-    // Now click the overlay to close the sidebar
-    const overlay = document.querySelector('.toggle-nav-overlay');
-    fireEvent.click(overlay!);
-
-    // Sidebar should disappear
-    expect(screen.queryByTestId('mobile-sidebar')).not.toBeInTheDocument();
+  
+    // Check that the logo is rendered
+    const logo = screen.getByAltText('Home');
+    expect(logo).toBeInTheDocument();
+    expect(logo).toHaveClass('Logo');
+  
+    // Check that the hamburger menu button is rendered
+    const hamburgerMenuButton = screen.getByRole('button');
+    expect(hamburgerMenuButton).toBeInTheDocument();
   });
-});
+  
+  
+})

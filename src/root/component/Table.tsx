@@ -182,7 +182,7 @@ const Table = () => {
           Showing {startIndex + 1} - {Math.min(endIndex, filteredUsers?.length || 0)} out of {filteredUsers?.length}
         </span>
         <div className="pagination-left">
-          <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="pagination-btn">
+          <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className="pagination-btn"   aria-label="previous">
             <IoIosArrowBack size={15} color="#213F7D" />
           </button>
 
@@ -198,7 +198,7 @@ const Table = () => {
             ))}
           </div>
 
-          <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="pagination-btn">
+          <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className="pagination-btn" aria-label="next">
             <IoIosArrowForward size={15} color="#213F7D" />
           </button>
         </div>

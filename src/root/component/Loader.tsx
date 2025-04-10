@@ -1,7 +1,7 @@
 const Loader = () => {
   return (
     <div style={styles.loaderWrapper}>
-      <div style={{ ...styles.spinner, animation: 'spin 1s linear infinite' }}></div>
+      <div data-testid="spinner" style={{ ...styles.spinner, animation: 'spin 1s linear infinite' }}></div>
       <style>
         {`
           @keyframes spin {

@@ -1,4 +1,3 @@
-
 import {IMAGES} from '../../assets/images'
 import { User } from '../../lib/types'
 import '../../styles/profileheader.scss'
